@@ -196,7 +196,11 @@ class PDFDocumentWithTables extends PDFDocument {
             size: this.page.size,
             margins: this.page.margins,
           });
-          lockAddHeader || addHeader();
+
+          if (!lockAddHeader) {
+            lockAddHeader = true;
+            addHeader();
+          }
           //addHeader();
         };
         
